@@ -8,6 +8,21 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 
 #my added Gems
+
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+  gem "sqlite3", :require => "sqlite3"
+end
+
+group :development do
+  gem 'taps'
+  gem 'rvm'
+end
+
+
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
@@ -26,9 +41,6 @@ group :test do
   gem 'database_cleaner', '0.7.0'
 end
 
-group :production do
-  gem 'pg', '0.12.2'
-end
 
 #end My Gems
 
