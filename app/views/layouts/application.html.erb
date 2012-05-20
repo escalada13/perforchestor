@@ -14,21 +14,15 @@
   <div class="body_top">
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
-          <!--Sidebar content-->
-          <h2>Side bar</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-          </p>
-        </div>
-        <div class="span10">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
           <!--Body content-->
           <%= yield %>
-        </div>
       </div>
     </div>
   </div>
     <%= render 'layouts/footer' %>
-
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
